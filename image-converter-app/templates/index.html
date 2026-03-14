@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bulk Image Converter</title></head>
+<body>
+<h1>Bulk Image Converter</h1>
+<p>Upload a zip file of images to convert them into jpg format</p>
+<form action="/convert" method="POST" enctype="multipart/form-data">
+    <label for="file-upload">Choose file to upload:</label>
+    <input type="file" name="file" accept=".zip"/><br>
+    <input type="submit" value="Upload File"/>
+</form>
+</body>
+</html>

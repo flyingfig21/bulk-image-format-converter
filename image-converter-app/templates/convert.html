@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bulk Image Converter</title></head>
+<body>
+{% if convert %}
+<h1>Upload Successful</h1>
+{% elif error %}
+<h1>An error occured: {{ error }}</h1>
+{% endif %}
+<a href="/">Upload another file</a>
+</body>
+</html>
