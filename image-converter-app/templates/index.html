@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head><title>Bulk Image Converter</title></head>
+<head>
+    <title>Bulk Image Format Converter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
 <body>
-<h1>Bulk Image Converter</h1>
+<h1>Bulk Image Format Converter</h1>
 <p>Upload a zip file of images to convert them into jpg format</p>
-<form action="/convert" method="POST" enctype="multipart/form-data">
-    <label for="file-upload">Choose file to upload:</label>
-    <input type="file" name="file" accept=".zip"/><br>
-    <input type="submit" value="Upload File"/>
+<div class="formcontainer">
+<form class="form" action="/convert" method="POST" enctype="multipart/form-data"> <!--Indicates the file selected by the user should be sent to the /convert route. Setting enctype to multipart/form-data is necessary for submitting the entire file-->
+    <label for="file-upload">Choose a file to upload:</label> 
+    <input type="file" name="file" accept=".zip"/><br> <!--Creates the button where users can select a zip file from their files. It is designed so that it only accepts files with a .zip extension to prevent users from submitting invalid file types.-->
+    <input type="submit" value="Upload File"/> <!--The button that users click to submit their file-->
 </form>
+</div>
 </body>
 </html>
