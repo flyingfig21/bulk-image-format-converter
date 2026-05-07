@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><title>Bulk Image Converter</title></head>
+<head>
+    <title>Bulk Image Format Converter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
 <body>
-{% if convert %}
-<h1>Upload Successful</h1>
-{% elif error %}
+{% if convert %} <!--If the images were successfully converted-->
+<h1>Your Images:</h1>
+{% for img in images %} <!--For each image url retrieved from the converted image bucket, display the image on the web page-->
+<div style="text-align: center;">
+    <img src="{{img}}" style="max-width: 400px; margin: 10px;">
+</div>
+{% endfor %}
+<br>
+<h2>Don't see all of your images? Try refreshing the page.</h2>
+<br>
+{% elif error %} <!--If an error occured, display the error message to the user-->
 <h1>An error occured: {{ error }}</h1>
 {% endif %}
-<a href="/">Upload another file</a>
+<div style="text-align: center">
+    <a href="/">Upload another file</a>
+</div>
 </body>
 </html>
