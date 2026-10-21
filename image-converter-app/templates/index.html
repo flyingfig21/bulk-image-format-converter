@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulk Image Format Converter</title>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 </head>
 <body>
-<h1>Bulk Image Format Converter</h1>
-<p>Upload a zip file of images to convert them into jpg format</p>
-<div class="formcontainer">
-<form class="form" action="/convert" method="POST" enctype="multipart/form-data"> <!--Indicates the file selected by the user should be sent to the /convert route. Setting enctype to multipart/form-data is necessary for submitting the entire file-->
-    <label for="file-upload">Choose a file to upload:</label> 
-    <input type="file" name="file" accept=".zip"/><br> <!--Creates the button where users can select a zip file from their files. It is designed so that it only accepts files with a .zip extension to prevent users from submitting invalid file types.-->
-    <input type="submit" value="Upload File"/> <!--The button that users click to submit their file-->
-</form>
-</div>
+    <header>
+        <nav class="bg-dark">
+            <ul class="list-reset nav-list">
+                <li>Home</li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>Bulk Image Format Converter</h1>
+            <p>Upload a zip file of images to convert them into JPEG, PNG, or WEBP formats</p>
+        </hgroup>
+    </header>
+    <main class="content">
+        <div class="form-container">
+            <form class="form" action="/convert" method="POST" enctype="multipart/form-data"> <!-- Indicates the file selected by the user should be sent to the /convert route. Setting enctype to multipart/form-data is necessary for submitting the entire file -->
+                <label for="file-upload">Choose a file to upload:</label> 
+                <input class="bg-primary" type="file" name="file" accept=".zip" required/><br> <!-- Creates the button where users can select a zip file from their files. It is designed so that it only accepts files with a .zip extension to prevent users from submitting invalid file types. -->
+                <label for="convert-type">Choose the image format you want to convert to:</label>
+                <select class="bg-light" name="convert-type" id="convert-type">
+                    <option value="JPEG" selected>JPEG</option>
+                    <option value="PNG">PNG</option>
+                    <option value="WEBP">WEBP</option>
+                </select><br>
+                <button class="bg-primary" type="submit">Upload File</button> <!-- The button that users click to submit their file -->
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; flyingfig21 2026</p>
+    </footer>
 </body>
 </html>
