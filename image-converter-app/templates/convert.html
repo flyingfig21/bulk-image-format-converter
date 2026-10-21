@@ -1,25 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulk Image Format Converter</title>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
 </head>
 <body>
-{% if convert %} <!--If the images were successfully converted-->
-<h1>Your Images:</h1>
-{% for img in images %} <!--For each image url retrieved from the converted image bucket, display the image on the web page-->
-<div style="text-align: center;">
-    <img src="{{img}}" style="max-width: 400px; margin: 10px;">
-</div>
-{% endfor %}
-<br>
-<h2>Don't see all of your images? Try refreshing the page.</h2>
-<br>
-{% elif error %} <!--If an error occured, display the error message to the user-->
-<h1>An error occured: {{ error }}</h1>
-{% endif %}
-<div style="text-align: center">
-    <a href="/">Upload another file</a>
-</div>
+    <header>
+        <nav class="bg-dark">
+            <ul class="list-reset nav-list">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </nav>
+        <hgroup>
+            <h1>Bulk Image Format Converter</h1>
+            <p>Upload a zip file of images to convert them into JPEG, PNG, or WEBP formats</p>
+        </hgroup>
+    </header>
+    <main class="content">
+        {% if convert %} <!-- If the images were successfully converted -->
+            <h2 style="text-align: center;">Your Images:</h2>
+        {% for img in images %} <!-- For each image url retrieved from the converted image bucket, display the image on the web page -->
+            <div style="text-align: center;">
+                <img src="{{img}}" style="max-width: 400px; margin: 10px;">
+            </div>
+        {% endfor %}
+        {% elif error %} <!-- If an error occured, display the error message to the user -->
+            <h2 style="text-align: center;">An error occured: {{ error }}</h2>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; flyingfig21 2026</p>
+    </footer>
 </body>
 </html>
