@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Status</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <script> <!-- Loop that reloads the page every 2 seconds when the images have not finished converting -->
+        window.onload = function() {
+            const rawStatus = "{{ job['status'] }}";
+            const status = rawStatus.replace(/['"]+/g, '');
+            if (status !== "done") {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="bg-dark">
+            <ul class="list-reset nav-list">
+                <li>Home</li>
+            </ul>
+        </nav>
+        <h1>Conversion Status</h1>
+    </header>
+    <main>
+        <p style="text-align: center;">Please wait while your images are being converted.</p>
+    </main>
+    <footer>
+        <p>&copy; flyingfig21 2026</p>
+    </footer>
+</body>
+</html>
